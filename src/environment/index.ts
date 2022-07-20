@@ -1,4 +1,4 @@
-import {readAsString} from '../util';
+import {log, readAsString} from '../util';
 import {EnvironmentConfig, EnvLine, isEnvLine, RequiredConfig} from './interface';
 import fs from 'fs-extra';
 import path from 'path';
@@ -18,9 +18,13 @@ const transformArgs = (config: EnvironmentConfig): RequiredConfig[] => {
 	}));
 };
 
+/**
+ * Check if the given environment fulfills all requirements.
+ * @param env environment to check
+ */
 const check = (env: RequiredConfig) => {
 	const absBasePath = path.join(process.cwd(), env.basePath);
-	console.log(`checking environment files in: ${absBasePath}`);
+	log(`checking environment files in: ${absBasePath}`);
 
 	const envPath = path.join(absBasePath, '.env');
 	const envExamplePath = path.join(absBasePath, env.exampleFilename);
@@ -55,7 +59,7 @@ const check = (env: RequiredConfig) => {
 			const diff = _.differenceWith<EnvLine, EnvLine>(exampleKeyValues, envKeyValues, (e1, e2): boolean => e1.key === e2.key);
 
 			for (const d of diff) {
-				console.warn(`key: ${d.key} not found in ${envPath}`);
+				log(`key: ${d.key} not found in ${envPath}`);
 				process.exit(-1);
 			}
 		} else if (env.copy) {
@@ -66,6 +70,9 @@ const check = (env: RequiredConfig) => {
 	}
 };
 
+/**
+ * @param config environments to check
+ */
 export const checkEnvironment = (config: EnvironmentConfig) => {
 	const environments = transformArgs(config);
 	for (const env of environments) {
