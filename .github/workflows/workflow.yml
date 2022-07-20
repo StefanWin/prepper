@@ -2,6 +2,9 @@ name: lint
 
 on:
   push:
+    paths-ignore:
+      - "*.md"
+      - "*.env.*"
 
 jobs:
   lint:
