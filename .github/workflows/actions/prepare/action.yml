@@ -1,0 +1,15 @@
+name: "checkout-and-install-dependencies"
+description: ""
+runs:
+  using: "composite"
+  steps:
+    - uses: pnpm/action-setup@v2.2.2
+      with:
+        version: 7.5.1
+    - name: Use Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: 18
+        cache: 'pnpm'
+    - run: pnpm i --prefer-offline
+      shell: bash

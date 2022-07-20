@@ -1,0 +1,18 @@
+{
+  "environments": {
+    "baseConfig": {
+      "exampleFilename": ".env.foo",
+      "strict": true
+    },
+    "environments": [
+      {
+        "basePath": "./",
+        "exampleFilename": ".env.example"
+      }
+    ]
+  },
+  "dependencies": {
+    "baseConfig": {},
+    "dependencies": []
+  }
+}

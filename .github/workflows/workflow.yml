@@ -1,0 +1,14 @@
+name: lint
+
+on:
+  push:
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    name: lint
+    steps:
+      - uses: actions/checkout@v2
+      - name: prepare
+        uses: ./.github/actions/prepare
+      - run: pnpm lint
