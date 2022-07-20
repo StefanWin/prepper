@@ -8,6 +8,7 @@ const transformArgs = (config: EnvironmentConfig): RequiredConfig[] => {
 	const baseOptions = {
 		strict: config.baseConfig.strict ?? true,
 		exampleFilename: config.baseConfig.exampleFilename ?? '.env.example',
+		envFilename: config.baseConfig.envFilename ?? '.env',
 		copy: config.baseConfig.copy ?? true,
 		overwrite: config.baseConfig.overwrite ?? false,
 	};

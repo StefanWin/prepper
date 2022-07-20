@@ -1,13 +1,13 @@
 export interface EnvFileBaseConfig {
   strict?: boolean
   exampleFilename?: string
+  envFilename?: string
   copy?: boolean
   overwrite?: boolean
 }
 
 export interface EnvFileConfig extends EnvFileBaseConfig {
   basePath: string
-  exampleFilename?: string
 }
 
 export interface EnvironmentConfig {
