@@ -3,11 +3,21 @@
 `prepper` helps you prepare your development environment 👩‍💻.
 
 # Install
-```bash
-pnpm add -D stefanwin/prepper # pnpm
-yarn add -D stefanwin/prepper # yarn
-npm install -D                # npm
-```
+- Install `prepper` as a dev-dependency
+  ```bash
+  pnpm add -D stefanwin/prepper    # pnpm
+  yarn add -D stefanwin/prepper    # yarn
+  npm install -D stefanwin/prepper # npm
+  ```
+- add it your postinstall hook
+  ```json
+  "scripts": {
+    "postinstall": "prepper",
+    // ...
+  }
+  ```
+
+
 
 # Features
 
